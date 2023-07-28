@@ -3,7 +3,7 @@
 This package allows for easy downloading of EO data products.
 
 You just provide the list of filenames that you want and, if the products are supported,
-the library will automatically determine from which archive to get it and the download it.
+the library will automatically determine from which archive to get it and then download it.
 
 The library currently supports data from the following archives:
 
