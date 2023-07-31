@@ -35,7 +35,7 @@ def download(products, target_directory=None):
     targetpath = os.path.join(target_directory, product)
 
     if os.path.exists(targetpath):
-        return product
+        return
 
     if not os.path.exists(target_directory):
         os.makedirs(target_directory)
