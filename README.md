@@ -9,7 +9,7 @@ and will then download the product from that archive.
 The library currently supports downloading data from the following archives:
 
 - [Copernicus Dataspace Ecosystem (CDSE)](https://dataspace.copernicus.eu):
-  Sentinel-1 and Sentinel-5P products
+  Sentinel-1, Sentinel-2, Sentinel-3, and Sentinel-5P products
 - [S5P-PAL](https://data-portal.s5p-pal.com): Pre-operational Sentinel-5P
   products
 
