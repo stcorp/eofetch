@@ -8,7 +8,7 @@ setup(
     author='S[&]T',
     license='BSD',
     packages=['eofetch'],
-    entry_points={'console_scripts': ['eofetch = eofetch.main:main']},
+    entry_points={'console_scripts': ['eofetch = eofetch.__main__:main']},
     classifiers=[
         "Development Status :: 4 - Beta",
         "Programming Language :: Python :: 3",
