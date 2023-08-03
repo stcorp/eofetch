@@ -12,6 +12,7 @@ MAPPING = {
   r"^S5P.*\.nc$": cdse.download,
 }
 
+
 def download(products, target_directory=None):
     """
     Download product(s) from their source archive, skipping files that already exist.

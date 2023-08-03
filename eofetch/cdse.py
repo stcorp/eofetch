@@ -4,6 +4,7 @@ import os
 import boto3
 import requests
 
+
 # version of os.makedirs that won't complain if the path already exists
 def make_path(path):
     try:

@@ -1,7 +1,5 @@
-import argparse
-from .fetch import download
-
-"""Download products from their respective archives.
+"""
+Download products from their respective archives.
 
 For each filename provided as argument eofetch will try to retrieve it from the appropriate archive.
 Each filename needs to be the filename of a product in the unzipped form.
@@ -11,9 +9,13 @@ Depending on the archive where the products are hosted, you may need to set envi
 with the credentials needed for downloading.
 """
 
+import argparse
+from .fetch import download
+
 
 def main():
-    parser = argparse.ArgumentParser(prog="eofetch", description=__doc__)
+    parser = argparse.ArgumentParser(prog="eofetch", description=__doc__,
+                                     formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("-o", "--output", metavar="OUTPUT_DIRECTORY",
                         help="output path where all products will be stored")
     parser.add_argument("products", nargs="+", metavar="<product>")
