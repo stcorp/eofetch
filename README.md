@@ -50,8 +50,8 @@ Details on this can be found in the
 [CDSE documentation](https://documentation.dataspace.copernicus.eu/APIs/S3.html).
 
 You will have to define environment variables `CDSE_S3_ACCESS` and
-`CDSE_S3_SECRET` that contain the access key and secret key that you get from the
-CDSE helpdesk.
+`CDSE_S3_SECRET` that contain the access key and secret key that you get from
+the CDSE helpdesk.
 
 You can set these environment variables within a linux shell using:
 
@@ -67,3 +67,9 @@ or from within python, using:
 os.environ["CDSE_S3_ACCESS"] = "XXXXXXXXXXXXXXXXXXXX"
 os.environ["CDSE_S3_SECRET"] = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 ```
+
+Alternatively, if you are using eofetch from within a cloud environment where
+the eodata bucket is available as a local mount, you can set the
+`CDSE_LOCAL_PATH` environment variable to point to this local path.
+In that case eofetch will not download the product, but create a symbolic link
+to the location of the product within the local mount.

@@ -25,16 +25,23 @@ def get_s3path(product):
 def download(product, target_directory):
     endpoint_url = "https://eodata.dataspace.copernicus.eu/"
     bucket = "eodata"
+
+    s3path = get_s3path(product).removeprefix(f"/{bucket}/")
+    if os.path.basename(s3path) != product:
+        s3path = os.path.join(s3path, product)
+
+    if "CDSE_LOCAL_PATH" in os.environ:
+        # map CDSE S3 root to the given directory and create a symlink
+        os.symlink(os.path.join(os.environ["CDSE_LOCAL_PATH"], s3path),
+                   os.path.join(target_directory, os.path.basename(s3path)))
+        return
+
     if "CDSE_S3_ACCESS" not in os.environ or "CDSE_S3_SECRET" not in os.environ:
         raise Exception("CDSE_S3_ACCESS and CDSE_S3_SECRET environment variables need to be set to download from CDSE. "
                         "CDSE S3 credentials can be obtained by following the instructions at "
                         "https://documentation.dataspace.copernicus.eu/APIs/S3.html")
     access_key = os.environ["CDSE_S3_ACCESS"]
     secret_key = os.environ["CDSE_S3_SECRET"]
-
-    s3path = get_s3path(product).removeprefix(f"/{bucket}/")
-    if os.path.basename(s3path) != product:
-        s3path = os.path.join(s3path, product)
 
     resource = boto3.resource(service_name="s3", aws_access_key_id=access_key, aws_secret_access_key=secret_key,
                               endpoint_url=endpoint_url)
