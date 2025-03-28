@@ -10,6 +10,11 @@ The library currently supports downloading data from the following archives:
 
 - [Copernicus Dataspace Ecosystem (CDSE)](https://dataspace.copernicus.eu):
   Sentinel-1, Sentinel-2, Sentinel-3, and Sentinel-5P products
+- [EarthCARE (OADS)](https://earth.esa.int/eogateway/missions/earthcare/data):
+  only products from the [EarthCARE L1 Products](https://ec-pdgs-dissemination1.eo.esa.int/oads/access/collection/EarthCAREL1Validated),
+  [EarthCARE ESA L2 Products](https://ec-pdgs-dissemination2.eo.esa.int/oads/access/collection/EarthCAREL2Validated),
+  and [EarthCARE X-MET L1D Products](https://ec-pdgs-dissemination1.eo.esa.int/oads/access/collection/EarthCAREXMETL1DProducts10)
+  collections.
 - [S5P-PAL](https://data-portal.s5p-pal.com): Pre-operational Sentinel-5P
   products
 
@@ -73,3 +78,32 @@ the eodata bucket is available as a local mount, you can set the
 `CDSE_LOCAL_PATH` environment variable to point to this local path.
 In that case eofetch will not download the product, but create a symbolic link
 to the location of the product within the local mount.
+
+
+## OADS access
+
+To download data via OADS you will need to register for an account at
+[EO Sign In](https://eoiam-idp.eo.esa.int/). More detailed instructions are
+provided in the [Fast Registration How To](https://earth.esa.int/eogateway/faq/how-to-access-earth-observation-data-distributed-by-esa-fast-registration).
+
+Try to make sure that downloads of products for your collection
+work via the browser before you start using eofetch.
+
+You will have to define environment variables `OADS_USERNAME` and
+`OADS_PASSWORD` that contain the username and password of your EO Sign In.
+
+You can set these environment variables within a linux shell using:
+
+```
+export OADS_USERNAME="xxxxxxxxxxxxx"
+export OADS_PASSWORD="xxxxxxxxxxxxx"
+```
+(replacing the xxx values with your credentials)
+
+or from within python, using:
+
+```
+os.environ["OADS_USERNAME"] = "xxxxxxxxxxxxx"
+os.environ["OADS_PASSWORD"] = "xxxxxxxxxxxxx"
+```
+

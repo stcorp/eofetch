@@ -2,9 +2,12 @@ import os
 import re
 
 from . import cdse
+from . import oads
 from . import s5ppal
 
 MAPPING = {
+  r"^ECA_.*\.h5$": oads.download,
+  r"^ECA_.*\.ZIP$": oads.download,
   r"^S1.*\.SAFE$": cdse.download,
   r"^S2.*\.SAFE$": cdse.download,
   r"^S3.*\.SEN3$": cdse.download,
