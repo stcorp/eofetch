@@ -5,11 +5,14 @@ import requests
 
 
 def get_url(product):
-    endpoint = "https://data-portal.s5p-pal.com/cat/sentinel-5p/search"
+    if product.startswith('s5p-l3grd'):
+        endpoint = "https://data-portal.s5p-pal.com/api/s5p-l3/search"
+    else:
+        endpoint = "https://data-portal.s5p-pal.com/api/s5p-l2/search"
     items = list(ItemSearch(endpoint, ids=os.path.splitext(product)[0]).items())
     if len(items) == 0:
         raise Exception(f"could not find product '{product}' in S5P-PAL STAC catalogue")
-    return items[0].assets["download"].href
+    return items[0].assets["product"].href
 
 
 def download(product, target_directory):

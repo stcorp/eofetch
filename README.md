@@ -16,7 +16,7 @@ The library currently supports downloading data from the following archives:
   and [EarthCARE X-MET L1D Products](https://ec-pdgs-dissemination1.eo.esa.int/oads/access/collection/EarthCAREXMETL1DProducts10)
   collections.
 - [S5P-PAL](https://data-portal.s5p-pal.com): Pre-operational Sentinel-5P
-  products
+  L2 products and Sentinel-5P L3 products
 
 
 ## Examples

@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='eofetch',
-    version='0.4',
+    version='0.5',
     description='Earth Observation Data Retrieval library',
     url="https://github.com/stcorp/eofetch",
     author='S[&]T',

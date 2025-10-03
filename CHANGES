@@ -1,3 +1,9 @@
+0.5 2025-10-03
+~~~~~~~~~~~~~~
+
+* Fixed downloading of S5P-PAL L2 data and added support for downloading
+  S5P L3 data.
+
 0.4 2025-09-30
 ~~~~~~~~~~~~~~
 

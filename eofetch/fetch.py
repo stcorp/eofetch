@@ -11,6 +11,7 @@ MAPPING = {
   r"^S1.*\.SAFE$": cdse.download,
   r"^S2.*\.SAFE$": cdse.download,
   r"^S3.*\.SEN3$": cdse.download,
+  r"^s5p-l3grd.*\.nc$": s5ppal.download,
   r"^S5P_PAL_.*\.nc$": s5ppal.download,
   r"^S5P.*\.nc$": cdse.download,
 }
