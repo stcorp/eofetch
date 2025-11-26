@@ -54,6 +54,27 @@ COLLECTIONS = [
             'MSI_COP_2A',
         ],
     },
+    {
+        'id': 'JAXAL2Validated',
+        'hostname': 'ec-pdgs-dissemination1.eo.esa.int',
+        'mission': 'ECA',
+        'product_types': [
+            'AC__CLP_2B',
+            'ATL_CLA_2A',
+            'CPR_CLP_2A',
+            'CPR_ECA_2A',
+            'MSI_CLP_2A',
+        ],
+    },
+    {
+        'id': 'EarthCAREOrbitData',
+        'hostname': 'ec-pdgs-dissemination1.eo.esa.int',
+        'mission': 'ECA',
+        'product_types': [
+            'AUX_ORBPRE',
+            'MPL_ORBSCT',
+        ],
+    },
 ]
 
 COLLECTION_MAPPING = {}
@@ -100,8 +121,8 @@ def download(product, target_directory):
     mission = product[:3]
     product_type = product[9:19]
 
-    if product.endswith('.h5'):
-        zipped_product = product[:-3] + ".ZIP"
+    if product.endswith('.h5') or product.endswith('.EOF'):
+        zipped_product = os.path.splitext(product)[0] + ".ZIP"
         with tempfile.TemporaryDirectory() as tempdir:
             download(zipped_product, tempdir)
             with zipfile.ZipFile(os.path.join(tempdir, zipped_product), 'r') as ziparchive:
