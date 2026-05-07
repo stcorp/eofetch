@@ -2,13 +2,13 @@ import os
 import re
 
 from . import cdse
-from . import oads
+from . import maap
 from . import s5ppal
 
 MAPPING = {
-  r"^ECA_.*\.h5$": oads.download,
-  r"^ECA_.*\.EOF$": oads.download,
-  r"^ECA_.*\.ZIP$": oads.download,
+  r"^ECA_.*\.h5$": maap.download,
+  r"^ECA_.*\.EOF$": maap.download,
+  r"^ECA_.*\.ZIP$": maap.download,
   r"^S1.*\.SAFE$": cdse.download,
   r"^S2.*\.SAFE$": cdse.download,
   r"^S3.*\.SEN3$": cdse.download,
@@ -24,6 +24,7 @@ def download(products, target_directory=None):
 
     Supported archives are:
       - CDSE: https://dataspace.copernicus.eu
+      - MAAP: https://catalog.maap.eo.esa.int
       - S5P-PAL: https://data-portal.s5p-pal.com
 
     Arguments:
